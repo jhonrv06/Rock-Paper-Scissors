@@ -7,10 +7,9 @@
 
     CREAR función getComputerChoice con un parametro llamado choiceComputer
         CREAR array de datos llamado choices con los valores "rock", "paper", "scissors"
-        CREAR variable getChoice la cual tendra asignado como valor el poder acceder a un elemento del array choice y de indice se pasara el parametro choiceComputer
+        CREAR variable getChoice la cual tendrá asignado como valor el poder acceder a un elemento del array choice y de indice se pasara el parametro choiceComputer
         RETORNAR el valor de la variable getChoice
 
-
-
-
     
+    CREAR función getHumanChoice con un parámetro humanElección que me devolverá la elección del usuario
+        RETORNAR el array CHOICE y pasar como indice el valor del parámetro humanElección
