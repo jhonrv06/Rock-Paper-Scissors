@@ -25,4 +25,15 @@
         ELSE
             OBTAIN variable computerScore y aumentan puntaje en 1
             mostrar mensaje "gana computador"
+
 //Funcion para jugar 5 rondas
+    SET Funcion llamada playGame
+        INIT variable humanScore en 0
+        INIT variable computerScore en 0
+        WHILE  0 sea menor que 5 se ejecutan las funciones y codigo siguientes
+            SET constante HUMAN_PROM para obtener la eleccion del usuario
+            SET array choice con las 3 elecciones
+            SET constante HUMAN_INDEX_CHOICE para obtener el indice del elemnto dentro del array
+            SET constante COMPUTER_ELECTION 
+            SET constante HUMAN_ELECTION
+            CALL funcion play round
