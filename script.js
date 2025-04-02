@@ -50,5 +50,4 @@ function playGame(gameRounds){
         (computerScore > humanScore) ? alert(":( you lost"): alert("Draw");
     return finalWinner;
 }
-
 console.log(playGame(5));

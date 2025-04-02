@@ -1,3 +1,3 @@
 # Rock-Paper-Scissors
 
-Proyecto en java script donde se implementara una aproximación del juego piedra, papel o tijera.
+Java script project where an approximation of the rock, paper, scissors game will be implemented.
