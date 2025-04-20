@@ -1,5 +1,13 @@
 const CHOICE = ["rock", "paper", "scissors"];
 
+function showWinner(winner){
+
+    let message = `The winner is ${winner}`;
+    
+    return message;
+
+}
+
 function getRandomNumber(numberMax){
     let randomNumber = Math.floor(Math.random() * numberMax);
     return randomNumber;
@@ -34,6 +42,13 @@ function playGame(gameRounds){
         const HUMAN_ELECTION = getHumanChoice(HUMAN_INDEX_CHOICE);
         const RESULT_ROUND = playRound(HUMAN_ELECTION, COMPUTER_ELECTION);
 
+        console.log(showWinner(RESULT_ROUND))
+
+        if(RESULT_ROUND) {
+           
+        }
+    }
+        /*
         if(RESULT_ROUND === "human"){
             humanScore += 1;
             winner = "human";
@@ -48,6 +63,6 @@ function playGame(gameRounds){
     let finalWinner =  
         (humanScore > computerScore) ? alert("Congratulations you won") : 
         (computerScore > humanScore) ? alert(":( you lost"): alert("Draw");
-    return finalWinner;
+    return finalWinner; */
 }
 console.log(playGame(5));
