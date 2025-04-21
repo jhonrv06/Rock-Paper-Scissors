@@ -1,12 +1,38 @@
 const CHOICE = ["rock", "paper", "scissors"];
 
-function showWinner(winner){
+let players = [
+    {player: "human", score: 0},
+    {player: "computer", score: 0},
+]
 
-    let message = `The winner is ${winner}`;
-    
+function showWinner(winner, rounds, limit){
+    let message = "";
+
+    if(winner === "draw"){
+       return "empate";
+    }
+
+    //obtener el score actual y agregarle un valor
+    const addPoint = players.find(p => p.player === winner);
+    addPoint.score = addPoint.score + 1;
+
+    if(rounds != limit){
+        message = `The winner of raund is ${winner} human obtain ${addPoint.score} computer obtain ${players[1].score}`;
+    }else{
+        let winnerT = players.reduce((winner, playerActual) => {
+            return playerActual.score > winner.score ? playerActual : winner
+        })
+
+        console.log(`The winner of raund is ${winner} human obtain ${addPoint.score} computer obtain ${players[1].score}`)
+        console.log(`el ganador definitivo es  ${winnerT.player} con ${winnerT.score} puntos`);
+    }
+
     return message;
+};
 
-}
+
+   
+
 
 function getRandomNumber(numberMax){
     let randomNumber = Math.floor(Math.random() * numberMax);
@@ -28,10 +54,8 @@ function playRound (humanChoice, computerChoice) {
 }
 
 function playGame(gameRounds){
-    let humanScore = 0;
-    let computerScore = 0;
     let x = 0;
-    let winner;
+    let empate = 0;
 
     while(x < gameRounds){
         x++
@@ -42,27 +66,14 @@ function playGame(gameRounds){
         const HUMAN_ELECTION = getHumanChoice(HUMAN_INDEX_CHOICE);
         const RESULT_ROUND = playRound(HUMAN_ELECTION, COMPUTER_ELECTION);
 
-        console.log(showWinner(RESULT_ROUND))
+        
 
-        if(RESULT_ROUND) {
-           
+        if(RESULT_ROUND === "draw") {
+            gameRounds += 1;
         }
+
+        console.log(showWinner(RESULT_ROUND, x, gameRounds))
     }
-        /*
-        if(RESULT_ROUND === "human"){
-            humanScore += 1;
-            winner = "human";
-        }else if(RESULT_ROUND === "computer"){
-            computerScore += 1;
-            winner = "computer"
-        }else {
-            winner = "draw"
-        }
-        console.log(`Win ${winner}, human obtain ${humanScore} computer obtain ${computerScore}`);
-    };
-    let finalWinner =  
-        (humanScore > computerScore) ? alert("Congratulations you won") : 
-        (computerScore > humanScore) ? alert(":( you lost"): alert("Draw");
-    return finalWinner; */
+    
 }
 console.log(playGame(5));
