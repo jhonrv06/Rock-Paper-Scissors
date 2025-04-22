@@ -1,3 +1,4 @@
+
 const CHOICE = ["rock", "paper", "scissors"];
 
 let players = [
@@ -22,7 +23,6 @@ function showWinner(winner, rounds, limit){
         let winnerT = players.reduce((winner, playerActual) => {
             return playerActual.score > winner.score ? playerActual : winner
         })
-
         console.log(`The winner of raund is ${winner} human obtain ${addPoint.score} computer obtain ${players[1].score}`)
         console.log(`el ganador definitivo es  ${winnerT.player} con ${winnerT.score} puntos`);
     }
@@ -53,15 +53,12 @@ function playRound (humanChoice, computerChoice) {
     }
 }
 
-function playGame(gameRounds){
+export function playGame(gameRounds, usuarioEle){
     let x = 0;
     let empate = 0;
 
-    while(x < gameRounds){
-        x++
-        let humanProm = prompt("Enter `Rock, Paper, scissors`").toLowerCase();
         //Es necesario utilizar indexOf para obtener el numero de indice del array y asi no tener que utilizar if y else
-        const HUMAN_INDEX_CHOICE = CHOICE.indexOf(humanProm);
+        const HUMAN_INDEX_CHOICE = CHOICE.indexOf(usuarioEle);
         const COMPUTER_ELECTION = getComputerChoice(getRandomNumber(3));
         const HUMAN_ELECTION = getHumanChoice(HUMAN_INDEX_CHOICE);
         const RESULT_ROUND = playRound(HUMAN_ELECTION, COMPUTER_ELECTION);
@@ -73,7 +70,6 @@ function playGame(gameRounds){
         }
 
         console.log(showWinner(RESULT_ROUND, x, gameRounds))
-    }
     
 }
 console.log(playGame(5));
