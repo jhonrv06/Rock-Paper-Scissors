@@ -1,6 +1,9 @@
 import { addResultsToDoom } from "./doom_modific.js";
+import { endGame } from "./doom_modific.js";
+
 const CHOICE = ["rock", "paper", "scissors"];
 let rounds = 0;
+
 
 let players = [
     {player: "human", score: 0},
@@ -11,7 +14,8 @@ function showWinner(winner){
     let message = "";
 
     if(winner === "draw"){
-       return "empate";
+        addResultsToDoom(winner, 0);
+        return
     }
     //obtener el score actual y agregarle un valor
     const addPoint = players.find(p => p.player === winner);
@@ -26,15 +30,13 @@ function showWinner(winner){
             return playerActual.score > winner.score ? playerActual : winner
         })
 
-        
-       return  `el ganador definitivo es  ${winnerT.player} con ${winnerT.score} puntos`;
+        endGame(winnerT.player);
     }
 
+    /*
     message = `The winner of round is ${winner}, 1 point for  ${winner}, total ${addPoint.score} points. 
     Human: ${players[0].score} 
-    Computer: ${players[1].score}`;
-
-    return message;
+    Computer: ${players[1].score}`;*/
 };
 
 
@@ -63,8 +65,7 @@ export function playGame(gameRounds, usuarioEle){
         const HUMAN_ELECTION = getHumanChoice(HUMAN_INDEX_CHOICE);
         const COMPUTER_ELECTION = getComputerChoice(getRandomNumber(3));
         const RESULT_ROUND = playRound(HUMAN_ELECTION, COMPUTER_ELECTION);
-
-        console.log(showWinner(RESULT_ROUND))
+        showWinner(RESULT_ROUND)
     
 }
 //console.log(playGame(5));

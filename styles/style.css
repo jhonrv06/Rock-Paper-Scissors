@@ -10,6 +10,7 @@ body{
     color: white;
 }
 
+
 h1{
     font-family: courier;
     text-shadow: 0 0 10px #f8f8f88a;
@@ -19,6 +20,18 @@ h1{
 
 .container{
    background-color: aliceblue;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   gap: 20px;
+   background-color: rgb(5, 24, 36);
+   text-align: center;
+   width: 500px;
+}
+
+.container_buttons{
+    background-color: aliceblue;
    display: flex;
    justify-content: center;
    align-items: center;
@@ -33,6 +46,18 @@ h1{
     width: 20px;
 }
 
+.container_text{
+    font-weight: bolder;
+    font-size: 20px;
+}
+.span--human{
+    color: rgb(0, 142, 185);
+}
+
+.span--computer{
+    color: rgb(233, 178, 0);
+}
+
 .puntuacion_span{
     font-size: 20px;
 }
@@ -41,8 +66,9 @@ h1{
     font-size: 20px;
 }
 
+
 .puntuacion_text:first-child{
-    color: red;
+    color: rgb(0, 142, 185);
 }
 
 .puntuacion_text:nth-child(2){
