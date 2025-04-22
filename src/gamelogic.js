@@ -8,7 +8,6 @@ let players = [
 
 function showWinner(winner, rounds, limit){
     let message = "";
-
     if(winner === "draw"){
        return "empate";
     }
