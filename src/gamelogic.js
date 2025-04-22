@@ -1,13 +1,15 @@
 
 const CHOICE = ["rock", "paper", "scissors"];
+let rounds = 0;
 
 let players = [
     {player: "human", score: 0},
     {player: "computer", score: 0},
 ]
 
-function showWinner(winner, rounds, limit){
+function showWinner(winner){
     let message = "";
+
     if(winner === "draw"){
        return "empate";
     }
@@ -16,21 +18,22 @@ function showWinner(winner, rounds, limit){
     const addPoint = players.find(p => p.player === winner);
     addPoint.score = addPoint.score + 1;
 
-    if(rounds != limit){
-        message = `The winner of raund is ${winner} human obtain ${addPoint.score} computer obtain ${players[1].score}`;
-    }else{
+    rounds += 1
+
+    if(rounds === 5){
         let winnerT = players.reduce((winner, playerActual) => {
             return playerActual.score > winner.score ? playerActual : winner
         })
-        console.log(`The winner of raund is ${winner} human obtain ${addPoint.score} computer obtain ${players[1].score}`)
-        console.log(`el ganador definitivo es  ${winnerT.player} con ${winnerT.score} puntos`);
+       message =  `el ganador definitivo es  ${winnerT.player} con ${winnerT.score} puntos`;
     }
+
+    message = `The winner of round is ${winner}, 1 point for  ${winner}, total ${addPoint.score} points. 
+    Human: ${players[0].score} 
+    Computer: ${players[1].score}`;
+
 
     return message;
 };
-
-
-   
 
 
 function getRandomNumber(numberMax){
@@ -53,22 +56,13 @@ function playRound (humanChoice, computerChoice) {
 }
 
 export function playGame(gameRounds, usuarioEle){
-    let x = 0;
-    let empate = 0;
-
         //Es necesario utilizar indexOf para obtener el numero de indice del array y asi no tener que utilizar if y else
         const HUMAN_INDEX_CHOICE = CHOICE.indexOf(usuarioEle);
-        const COMPUTER_ELECTION = getComputerChoice(getRandomNumber(3));
         const HUMAN_ELECTION = getHumanChoice(HUMAN_INDEX_CHOICE);
+        const COMPUTER_ELECTION = getComputerChoice(getRandomNumber(3));
         const RESULT_ROUND = playRound(HUMAN_ELECTION, COMPUTER_ELECTION);
 
-        
-
-        if(RESULT_ROUND === "draw") {
-            gameRounds += 1;
-        }
-
-        console.log(showWinner(RESULT_ROUND, x, gameRounds))
+        console.log(showWinner(RESULT_ROUND))
     
 }
-console.log(playGame(5));
+//console.log(playGame(5));

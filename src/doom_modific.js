@@ -5,10 +5,9 @@ let num = 0;
 
 function getSeleccion(e){
     let idElection = e.target.id.toLowerCase();
-    playGame(idElection)
+    playGame(5, idElection);
 
 }
-
 
 buttons.forEach(button => {
     button.addEventListener("click", getSeleccion);
