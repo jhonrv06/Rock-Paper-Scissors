@@ -11,8 +11,6 @@ let players = [
 ]
 
 function showWinner(winner){
-    let message = "";
-
     if(winner === "draw"){
         addResultsToDoom(winner, 0);
         return
@@ -25,18 +23,22 @@ function showWinner(winner){
 
     rounds += 1
 
-    if(rounds === 5){
+    
+    console.log(addPoint.score);
+    if(addPoint.score === 5){
+        /*
         let winnerT = players.reduce((winner, playerActual) => {
             return playerActual.score > winner.score ? playerActual : winner
         })
-
-        endGame(winnerT.player);
+        */
+        endGame(winner);
     }
 
     /*
     message = `The winner of round is ${winner}, 1 point for  ${winner}, total ${addPoint.score} points. 
     Human: ${players[0].score} 
     Computer: ${players[1].score}`;*/
+     
 };
 
 
@@ -59,13 +61,13 @@ function playRound (humanChoice, computerChoice) {
     }
 }
 
-export function playGame(gameRounds, usuarioEle){
+export function playGame(usuarioEle){
         //Es necesario utilizar indexOf para obtener el numero de indice del array y asi no tener que utilizar if y else
         const HUMAN_INDEX_CHOICE = CHOICE.indexOf(usuarioEle);
         const HUMAN_ELECTION = getHumanChoice(HUMAN_INDEX_CHOICE);
         const COMPUTER_ELECTION = getComputerChoice(getRandomNumber(3));
         const RESULT_ROUND = playRound(HUMAN_ELECTION, COMPUTER_ELECTION);
-        showWinner(RESULT_ROUND)
+        showWinner(RESULT_ROUND);
     
 }
 //console.log(playGame(5));

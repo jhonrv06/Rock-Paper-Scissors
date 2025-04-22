@@ -39,7 +39,7 @@ export function addResultsToDoom(winner, score){
 
 function getSeleccion(e){
     let idElection = e.target.id.toLowerCase();
-    playGame(5, idElection);
+    playGame(idElection);
 }
 
 BUTTONS.forEach(button => {
