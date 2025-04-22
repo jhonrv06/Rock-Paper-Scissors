@@ -32,3 +32,19 @@ h1{
     padding: 10px 0;
     width: 20px;
 }
+
+.puntuacion_span{
+    font-size: 20px;
+}
+.puntuacion_text{
+    font-weight: bolder;
+    font-size: 20px;
+}
+
+.puntuacion_text:first-child{
+    color: red;
+}
+
+.puntuacion_text:nth-child(2){
+    color: rgb(233, 178, 0);
+}
