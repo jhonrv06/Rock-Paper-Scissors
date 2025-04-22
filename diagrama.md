@@ -37,3 +37,7 @@
             SET constante COMPUTER_ELECTION 
             SET constante HUMAN_ELECTION
             CALL funcion play round
+
+//adiocnar resultados al doom
+    SET funcion que me adiciones los resultados de cada ronda al doom
+        OBTAIN 

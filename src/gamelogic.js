@@ -1,4 +1,4 @@
-
+import { addResultsToDoom } from "./doom_modific.js";
 const CHOICE = ["rock", "paper", "scissors"];
 let rounds = 0;
 
@@ -13,10 +13,11 @@ function showWinner(winner){
     if(winner === "draw"){
        return "empate";
     }
-
     //obtener el score actual y agregarle un valor
     const addPoint = players.find(p => p.player === winner);
     addPoint.score = addPoint.score + 1;
+
+    addResultsToDoom(winner, addPoint.score);
 
     rounds += 1
 
@@ -24,13 +25,14 @@ function showWinner(winner){
         let winnerT = players.reduce((winner, playerActual) => {
             return playerActual.score > winner.score ? playerActual : winner
         })
-       message =  `el ganador definitivo es  ${winnerT.player} con ${winnerT.score} puntos`;
+
+        
+       return  `el ganador definitivo es  ${winnerT.player} con ${winnerT.score} puntos`;
     }
 
     message = `The winner of round is ${winner}, 1 point for  ${winner}, total ${addPoint.score} points. 
     Human: ${players[0].score} 
     Computer: ${players[1].score}`;
-
 
     return message;
 };
